@@ -3,21 +3,24 @@ import ReactDOM from 'react-dom/client';
 import { createStore } from 'redux';
 import App from './App';
 import './index.css';
+import allReducer from './reducers';
 import reportWebVitals from './reportWebVitals';
 
 // STORE -> GLOBALIZE STATE 
 
-//ACTION INCRIMENT
+//ACTION INCREMENT
 
-export const incriment = () =>{
+let store = createStore(allReducer);
+
+export const increment = () =>{
   return {
-    type:'INCRIMENT'
+    type:'INCREMENT'
   }
 }
 
-const decriment = () =>{
+const decrement = () =>{
   return {
-    type:'DECRIMENT'
+    type:'DECREMENT'
   }
 }
 
@@ -25,21 +28,21 @@ const decriment = () =>{
 
 const counter = (state = 0, action) => {
   switch(action.type){
-    case 'INCRIMENT':
+    case 'INCREMENT':
       return state + 1;
-    case 'decriment':
+    case 'DECREMENT':
       return state -1;
   }
 }
 
-let store = createStore(counter);
+
 
 // Display it in the console 
 store.subscribe(()=>console.log(store.getState()))
 
 
 // DISPATCH
-store.dispatch(incriment());
+store.dispatch(increment());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

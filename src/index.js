@@ -1,8 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { createStore } from 'redux';
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
+
+// STORE -> GLOBALIZE STATE 
+
+//ACTION INCRIMENT
+
+export const incriment = () =>{
+  return {
+    type:'INCRIMENT'
+  }
+}
+
+const decriment = () =>{
+  return {
+    type:'DECRIMENT'
+  }
+}
+
+// REDUCER
+
+const counter = (state = 0, action) => {
+  switch(action.type){
+    case 'INCRIMENT':
+      return state + 1;
+    case 'decriment':
+      return state -1;
+  }
+}
+
+let store = createStore(counter);
+
+// Display it in the console 
+store.subscribe(()=>console.log(store.getState()))
+
+
+// DISPATCH
+store.dispatch(incriment());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

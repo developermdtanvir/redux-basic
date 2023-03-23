@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import App from './App';
 import './index.css';
-import allReducers from './reducers';
+import { store } from './redux/store/store';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -13,7 +12,6 @@ import reportWebVitals from './reportWebVitals';
 //ACTION INCREMENT
 
 
-let store = createStore(allReducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 // export const increment = () =>{
 //   return {

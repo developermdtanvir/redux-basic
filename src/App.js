@@ -1,20 +1,18 @@
-import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment, isLogedIn } from "./actions";
-
+import Cart from './components/Cart/Cart';
+import Shop from './components/Shop/Shop';
 function App() {
-  const dispatch = useDispatch()
-  const counter = useSelector(state => state.counter);
-  const isLogged = useSelector(state => state.loggedIn);
+  const element = <h1>Hello World</h1>;
+
+  console.log(element);
   return (
     <div className="App">
-      <h1>My state counter {counter}</h1>
-      <button onClick={()=>dispatch(isLogedIn())}>Toggle Login</button>
-      {isLogged && <p>I do't show because this is conditional rendaring</p>}
-      <button onClick={()=>dispatch(increment(8))}>INCREMENT</button>
-      <button onClick={()=>dispatch(decrement(4))}>DECREMENT</button>
-     <h1>Hello World</h1>
+     <h1 className='text-3xl font-bold underline'>Hello world redux addToCart commaing Heare</h1>
+     <Cart />
+     <Shop />
     </div>
   );
 }
+
+
 
 export default App;

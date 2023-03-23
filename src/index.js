@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './App';
 import './index.css';
-import allReducer from './reducers';
+import allReducers from './reducers';
+
 import reportWebVitals from './reportWebVitals';
 
 // STORE -> GLOBALIZE STATE 
@@ -12,7 +13,7 @@ import reportWebVitals from './reportWebVitals';
 //ACTION INCREMENT
 
 
-let store = createStore(allReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+let store = createStore(allReducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 // export const increment = () =>{
 //   return {
@@ -50,7 +51,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-     <App />
+    <App />
     </Provider>
   </React.StrictMode>
 );

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import App from './App';
 import './index.css';
@@ -10,44 +11,47 @@ import reportWebVitals from './reportWebVitals';
 
 //ACTION INCREMENT
 
-let store = createStore(allReducer);
 
-export const increment = () =>{
-  return {
-    type:'INCREMENT'
-  }
-}
+let store = createStore(allReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-const decrement = () =>{
-  return {
-    type:'DECREMENT'
-  }
-}
+// export const increment = () =>{
+//   return {
+//     type:'INCREMENT'
+//   }
+// }
 
-// REDUCER
+// const decrement = () =>{
+//   return {
+//     type:'DECREMENT'
+//   }
+// }
 
-const counter = (state = 0, action) => {
-  switch(action.type){
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state -1;
-  }
-}
+// // REDUCER
 
-
-
-// Display it in the console 
-store.subscribe(()=>console.log(store.getState()))
+// const counter = (state = 0, action) => {
+//   switch(action.type){
+//     case 'INCREMENT':
+//       return state + 1;
+//     case 'DECREMENT':
+//       return state -1;
+//   }
+// }
 
 
-// DISPATCH
-store.dispatch(increment());
+
+// // Display it in the console 
+// store.subscribe(()=>console.log(store.getState()))
+
+
+// // DISPATCH
+// store.dispatch(increment());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+     <App />
+    </Provider>
   </React.StrictMode>
 );
 

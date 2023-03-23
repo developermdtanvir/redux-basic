@@ -15,14 +15,19 @@ const initialState = {
 const cartReducer = (state = initialState,action) => {
     switch(action.type){
         case ADD_TO_CART:
-            console.log(action);
+            const newItem = {
+                productId:action.id,
+                name:action.name,
+                cartId : state.cart.length +1
+            }
+            const newCartTem = [...state.cart,newItem]
             return {
                 ...state,
-                cart:[...state.cart,action.id],
+                cart:newCartTem,
             }
         case REMOVE_FROM_CART:
             const {id} = action;
-            const newCart = state.cart.filter(item => item !== id);
+            const newCart = state.cart.filter(item => item.cartId !== id);
             return {
                 ...state,
                 cart : newCart,

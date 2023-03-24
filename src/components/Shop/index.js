@@ -1,8 +1,10 @@
 import { connect } from "react-redux";
 import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
+import { loadData } from "../../redux/store";
 import Product from "../Product";
 function Shop (props){
     console.log(props);
+    const {loadData} = props;
     return(
         <div className="w-1/2 mx-auto">
             <table>
@@ -19,20 +21,23 @@ function Shop (props){
                     <Product />
                 </tbody>
             </table>
+            <button onClick={loadData}>loadData</button>
         </div>
     )
 }
 
 const mapStateToProps = state => {
+    console.log(state);
     return {
         cart : state.cart,
-        products: state.products
+        data: state.data
     }
 }
 
 const mapDispathchToProps = {
     addToCart: addToCart,
-    removeFromCart : removeFromCart
+    removeFromCart : removeFromCart,
+    loadData:loadData
 }
 
 export default connect(mapStateToProps,mapDispathchToProps)(Shop);

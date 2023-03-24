@@ -1,2 +1,6 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
-export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const LOADING_DATA = 'LOADING_DATA';
+export const LOAD_DATA_SUCCESS = 'LOAD_DATA_SUCCESS';
+export const LOAD_DATA_FAILURE = 'LOAD_DATA_FAILURE';
+export const FATCH_DATA = 'FATCH_DATA';

@@ -1,11 +1,10 @@
-import Cart from './components/Cart/Cart';
-import Shop from './components/Shop/Shop';
+import Shop from "./components/Shop";
+
 function App() {
   return (
-    <div className="App">
-     <h1 className='text-3xl font-bold underline'>Hello world redux addToCart commaing Heare</h1>
-     <Cart />
-     <Shop />
+    <div>
+      <h1 className="text-4xl font-bold text-center p-2">My Shopping Cart</h1>
+      <Shop />
     </div>
   );
 }

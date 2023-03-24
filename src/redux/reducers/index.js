@@ -17,7 +17,13 @@ const CartReducer = (state = initialState,action) =>{
           case LOAD_DATA_FAILURE:
             return { ...state, loading: false, error: action.payload };
         case ADD_TO_CART:
-            return state;
+            console.log(action);
+            const newItem = {
+                productId:action.id,
+                cartId : state.cart.length +1
+            }
+            const newCart = [...state.cart,newItem];
+            return {...state,cart:newCart}
         case REMOVE_FROM_CART:
             return state ;
         default:
